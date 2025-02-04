@@ -27,6 +27,26 @@ Este projeto demonstra o uso de um **temporizador periódico (`add_repeating_tim
 - **Mensagens seriais** para monitoramento do sistema.
 - Integração com o **simulador Wokwi** para validação do código.
 
+### Simulador para a prototipação do projeto
+
+[Simulador no WOKWI deste projeto](https://wokwi.com/projects/421920880908973057 "Simulador no WOKWI deste projeto")
+
+[![Diagrama de conexões](imgs/imagem_simulador.png "Diagrama de conexões")](https://github.com/hsantosdias/BitDogLab-Semaforo/blob/main/imgs/imagem_simulador.png?raw=true "Diagrama de conexões")
+
+
+### **Fluxograma do projeto**
+
+#### **Fluxograma simplificado para a execução do projeto**
+
+
+> Diagrama fornecido pelo Professor
+
+[![Diagrama simplificado para a construção do projeto Semaforo](imgs/fluxograma_simplificado.png "Diagrama simplificado para a construção do projeto Semaforo")](https://github.com/hsantosdias/BitDogLab-Semaforo/blob/main/imgs/fluxograma_simplificado.png?raw=true "Diagrama simplificado para a construção do projeto Semaforo")
+
+#### **Fluxograma completo para a construção do codigo do projeto**
+
+[![Fluxograma do projeto](imgs/fluxograma_principal.png "Fluxograma do projeto")](https://github.com/hsantosdias/BitDogLab-Semaforo/blob/main/imgs/fluxograma_principal.png?raw=true "Fluxograma do projeto")
+
 ---
 
 ## **Organização do Código**
@@ -35,11 +55,11 @@ O código está estruturado e comentado para facilitar a compreensão e reutiliz
 
  Código-fonte do semáforo
  Documentação complementar
-Testes para validação das funcionalidades
+ Testes para validação das funcionalidades
 
 ---
 
-## **Demonstração**
+## **Demonstração do professor**
 
 Vídeo demonstrativo do funcionamento do projeto(Video do Professor):
  **[Semáforo no Wokwi - Vídeo](https://www.dropbox.com/scl/fi/6w37qxzdq4ytljqvqzr6h/2025-01-25-17-48-11.mkv?rlkey=yjj1iqcfkx444xigglaxqw81e&dl=0)**
@@ -50,7 +70,7 @@ Vídeo demonstrativo do funcionamento do projeto(Video do Professor):
 
 - **Placa de desenvolvimento BitDogLab (RP2040)**
 - **LEDs** (Vermelho, Amarelo, Verde)
-- **Resistores de 330Ω**
+- **Resistores de 330Ω para cada LED**
 - **VS Code com Pico SDK e Simulador Wokwi** configurados
 
 ---
