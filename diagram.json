@@ -264,7 +264,7 @@
       "id": "led3",
       "top": 63.6,
       "left": 704.6,
-      "attrs": { "color": "blue" }
+      "attrs": { "color": "yellow" }
     },
     {
       "type": "wokwi-resistor",
