@@ -2,8 +2,8 @@
 #include "pico/stdlib.h"   // Biblioteca padrão para GPIO e comunicação serial
 #include "hardware/timer.h" // Biblioteca para temporizadores
 
-// Definição dos pinos do LED RGB
-#define LED_PIN_RED 13   // Pino do LED vermelho
+// Definição dos pinos dos LEDs
+#define LED_PIN_RED 13    // Pino do LED vermelho
 #define LED_PIN_YELLOW 12 // Pino do LED amarelo
 #define LED_PIN_GREEN 11  // Pino do LED verde
 
@@ -13,27 +13,28 @@ volatile int estado_semaforo = 0; // 0: vermelho, 1: amarelo, 2: verde
 
 // Função callback do temporizador
 bool repeating_timer_callback(struct repeating_timer *t) {
-    // Desliga todos os LEDs antes de mudar de estado
-    gpio_put(LED_PIN_RED, 0);
-    gpio_put(LED_PIN_YELLOW, 0);
-    gpio_put(LED_PIN_GREEN, 0);
-
     // Alterna os LEDs conforme a sequência correta do semáforo
     switch (estado_semaforo) {
-        case 0: // Estado inicial: Vermelho ligado
+        case 0: // Estado inicial: Liga apenas o vermelho
             gpio_put(LED_PIN_RED, 1);
+            gpio_put(LED_PIN_YELLOW, 0);
+            gpio_put(LED_PIN_GREEN, 0);
             printf("Sinal: VERMELHO\n");
             estado_semaforo = 1; // Próximo estado: Amarelo
             break;
-        case 1: // Amarelo ligado
+        case 1: // Liga apenas o amarelo
+            gpio_put(LED_PIN_RED, 0);
             gpio_put(LED_PIN_YELLOW, 1);
+            gpio_put(LED_PIN_GREEN, 0);
             printf("Sinal: AMARELO\n");
             estado_semaforo = 2; // Próximo estado: Verde
             break;
-        case 2: // Verde ligado
+        case 2: // Liga apenas o verde
+            gpio_put(LED_PIN_RED, 0);
+            gpio_put(LED_PIN_YELLOW, 0);
             gpio_put(LED_PIN_GREEN, 1);
             printf("Sinal: VERDE\n");
-            estado_semaforo = 0; // Retorna ao estado inicial (vermelho)
+            estado_semaforo = 0; // Retorna ao vermelho
             break;
     }
 
@@ -51,7 +52,7 @@ int main() {
     gpio_set_dir(LED_PIN_YELLOW, GPIO_OUT);
     gpio_set_dir(LED_PIN_GREEN, GPIO_OUT);
 
-    // **Correção:** O LED vermelho já começa ligado corretamente
+    // **Correção:** O LED vermelho já começa ligado corretamente por 3 segundos
     gpio_put(LED_PIN_RED, 1);
     gpio_put(LED_PIN_YELLOW, 0);
     gpio_put(LED_PIN_GREEN, 0);
