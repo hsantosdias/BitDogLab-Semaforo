@@ -29,7 +29,7 @@ Este projeto demonstra o uso de um **temporizador periódico (`add_repeating_tim
 
 ### Simulador para a prototipação do projeto
 
-https://wokwi.com/projects/421920880908973057
+[Simulador no WOKWI deste projeto](https://wokwi.com/projects/421920880908973057 "Simulador no WOKWI deste projeto")
 
 ---
 
@@ -39,11 +39,11 @@ O código está estruturado e comentado para facilitar a compreensão e reutiliz
 
  Código-fonte do semáforo
  Documentação complementar
-Testes para validação das funcionalidades
+ Testes para validação das funcionalidades
 
 ---
 
-## **Demonstração**
+## **Demonstração do professor**
 
 Vídeo demonstrativo do funcionamento do projeto(Video do Professor):
  **[Semáforo no Wokwi - Vídeo](https://www.dropbox.com/scl/fi/6w37qxzdq4ytljqvqzr6h/2025-01-25-17-48-11.mkv?rlkey=yjj1iqcfkx444xigglaxqw81e&dl=0)**
@@ -54,7 +54,7 @@ Vídeo demonstrativo do funcionamento do projeto(Video do Professor):
 
 - **Placa de desenvolvimento BitDogLab (RP2040)**
 - **LEDs** (Vermelho, Amarelo, Verde)
-- **Resistores de 330Ω**
+- **Resistores de 330Ω para cada LED**
 - **VS Code com Pico SDK e Simulador Wokwi** configurados
 
 ---
