@@ -9,39 +9,31 @@
 
 #define TIMER_INTERVAL_MS 3000  // Intervalo do temporizador (3 segundos)
 
-volatile int estado_semaforo = 0; // 0: vermelho, 1: vermelho+amarelo, 2: verde, 3: amarelo
+volatile int estado_semaforo = 0; // 0: vermelho, 1: amarelo, 2: verde
 
 // Função callback do temporizador
 bool repeating_timer_callback(struct repeating_timer *t) {
+    // Desliga todos os LEDs antes de mudar de estado
+    gpio_put(LED_PIN_RED, 0);
+    gpio_put(LED_PIN_YELLOW, 0);
+    gpio_put(LED_PIN_GREEN, 0);
+
     // Alterna os LEDs conforme a sequência correta do semáforo
     switch (estado_semaforo) {
         case 0: // Estado inicial: Vermelho ligado
             gpio_put(LED_PIN_RED, 1);
-            gpio_put(LED_PIN_YELLOW, 0);
-            gpio_put(LED_PIN_GREEN, 0);
             printf("Sinal: VERMELHO\n");
-            estado_semaforo = 1; // Próximo estado: Vermelho + Amarelo
+            estado_semaforo = 1; // Próximo estado: Amarelo
             break;
-        case 1: // Vermelho + Amarelo (preparação para o verde)
-            gpio_put(LED_PIN_RED, 1);
+        case 1: // Amarelo ligado
             gpio_put(LED_PIN_YELLOW, 1);
-            gpio_put(LED_PIN_GREEN, 0);
-            printf("Sinal: VERMELHO + AMARELO\n");
+            printf("Sinal: AMARELO\n");
             estado_semaforo = 2; // Próximo estado: Verde
             break;
         case 2: // Verde ligado
-            gpio_put(LED_PIN_RED, 0);
-            gpio_put(LED_PIN_YELLOW, 0);
             gpio_put(LED_PIN_GREEN, 1);
             printf("Sinal: VERDE\n");
-            estado_semaforo = 3; // Próximo estado: Amarelo
-            break;
-        case 3: // Amarelo ligado (preparação para o vermelho)
-            gpio_put(LED_PIN_RED, 0);
-            gpio_put(LED_PIN_YELLOW, 1);
-            gpio_put(LED_PIN_GREEN, 0);
-            printf("Sinal: AMARELO\n");
-            estado_semaforo = 0; // Retorna ao vermelho
+            estado_semaforo = 0; // Retorna ao estado inicial (vermelho)
             break;
     }
 
