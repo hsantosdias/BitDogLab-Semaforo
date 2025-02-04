@@ -9,6 +9,44 @@ Este projeto demonstra o uso de um **temporizador periódico (`add_repeating_tim
 
 ---
 
+## Objetivo do Projeto
+
+O principal objetivo deste projeto é demonstrar o uso da função `add_repeating_timer_ms()` do Pico SDK para criar um temporizador periódico no Raspberry Pi Pico W. Esse temporizador é responsável por alternar os estados dos LEDs conforme um ciclo de semáforo.
+
+O sistema segue a seguinte lógica:
+- O LED vermelho inicia ligado por 3 segundos.
+- O LED amarelo acende e permanece ligado por 3 segundos.
+- O LED verde acende e permanece ligado por 3 segundos.
+- O ciclo se repete continuamente.
+
+Este projeto é útil para a compreensão de conceitos como temporização, manipulação de GPIOs e controle de fluxo de execução em sistemas embarcados.
+
+---
+
+## Componentes Utilizados
+
+- **Microcontrolador**: Raspberry Pi Pico W (BitDogLab)
+- **LEDs**: Vermelho, Amarelo e Verde
+- **Resistores**: 330Ω para cada LED
+- **Software**: VS Code + Pico SDK + Simulador Wokwi
+
+---
+
+## Bibliotecas Utilizadas e Sua Importância
+
+O código deste projeto utiliza as seguintes bibliotecas essenciais para o funcionamento correto no Raspberry Pi Pico W:
+
+### `#include <stdio.h>`
+A biblioteca padrão de entrada e saída do C. É utilizada principalmente para permitir a comunicação serial com o computador através da função `printf()`, que imprime mensagens no console, facilitando a depuração e monitoramento do sistema.
+
+### `#include "pico/stdlib.h"`
+A biblioteca padrão do SDK do Raspberry Pi Pico. Contém funções essenciais para manipulação de GPIOs, delays (`sleep_ms()`), configuração de hardware e comunicação serial. Sem essa biblioteca, não seria possível inicializar e controlar os LEDs.
+
+### `#include "hardware/timer.h"`
+Esta biblioteca fornece suporte para o uso de temporizadores de hardware no RP2040. É fundamental para a implementação do temporizador periódico (`add_repeating_timer_ms()`), que gerencia o tempo de troca dos LEDs no semáforo. Sem essa biblioteca, seria necessário implementar a temporização manualmente, o que resultaria em um código menos eficiente.
+
+--- 
+
 ## **Funcionalidades Implementadas**
 
 ### **Atividade 1: Temporizador Periódico (Semáforo)**
@@ -75,9 +113,13 @@ Vídeo demonstrativo do funcionamento do projeto(Video do Professor):
 
 ---
 
-## **Como Usar**
+## Como Executar o Código
 
-Clone o repositório, compile e faça o upload do código para a placa para testar as funcionalidades!
+### Requisitos
+
+- Placa de desenvolvimento Raspberry Pi Pico W (BitDogLab)
+- Ambiente de desenvolvimento: VS Code + Pico SDK
+- Simulador: Wokwi
 
 ```bash
 git clone https://github.com/hsantosdias/BitDogLab-Semaforo.git
