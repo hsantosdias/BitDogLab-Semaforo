@@ -6,21 +6,30 @@
 #define LED_PIN_BLUE 12 // Pino do LED azul
 #define LED_PIN_GREEN 11 // Pino do LED verde
 #define TIMER_INTERVAL_MS 1000  // Intervalo do temporizador (1 segundo)
-#define SERIAL_PRINT_INTERVAL 10  // Número de ciclos para imprimir na serial
 
-bool leds_on = false;
-int counter = 0;  // Contador para a serial
+volatile int estado_led = 0; // Controla a sequência dos LEDs
 
 // Função callback do temporizador
 bool repeating_timer_callback(struct repeating_timer *t) {
-    // Alterna o estado dos LEDs
-    leds_on = !leds_on;
-    gpio_put(LED_PIN_RED, leds_on);
-    gpio_put(LED_PIN_BLUE, leds_on);
-    gpio_put(LED_PIN_GREEN, leds_on);
-    
-    // Imprime mensagem na serial
-    printf("1 segundo passou\n");
+    // Desliga todos os LEDs antes de mudar de estado
+    gpio_put(LED_PIN_RED, 0);
+    gpio_put(LED_PIN_BLUE, 0);
+    gpio_put(LED_PIN_GREEN, 0);
+
+    // Alterna os LEDs conforme a sequência desejada
+    if (estado_led == 0) {
+        gpio_put(LED_PIN_RED, 1);  // Liga o LED vermelho
+        printf("LED VERMELHO ligado\n");
+        estado_led = 1;
+    } else if (estado_led == 1) {
+        gpio_put(LED_PIN_BLUE, 1); // Liga o LED azul
+        printf("LED AZUL ligado\n");
+        estado_led = 2;
+    } else {
+        gpio_put(LED_PIN_GREEN, 1); // Liga o LED verde
+        printf("LED VERDE ligado\n");
+        estado_led = 0; // Volta ao primeiro estado
+    }
     
     return true; // Mantém o temporizador ativo
 }
@@ -28,31 +37,26 @@ bool repeating_timer_callback(struct repeating_timer *t) {
 int main() {
     stdio_init_all(); // Inicializa a comunicação serial
 
-    // Inicializa e configura os LEDs RED e BLUE e GREEN
+    // Inicializa e configura os LEDs
     gpio_init(LED_PIN_RED);
     gpio_init(LED_PIN_BLUE);
     gpio_init(LED_PIN_GREEN);
     gpio_set_dir(LED_PIN_RED, GPIO_OUT);
     gpio_set_dir(LED_PIN_BLUE, GPIO_OUT);
     gpio_set_dir(LED_PIN_GREEN, GPIO_OUT);
-    gpio_put(LED_PIN_RED, false); // Garante que o LED começa desligado
-    gpio_put(LED_PIN_BLUE, false); // Garante que o LED começa desligado
-    gpio_put(LED_PIN_GREEN, false); // Garante que o LED começa desligado
+
+    // Garante que o LED vermelho começa ligado
+    gpio_put(LED_PIN_RED, 1);
+    gpio_put(LED_PIN_BLUE, 0);
+    gpio_put(LED_PIN_GREEN, 0);
 
     // Configura o temporizador para chamar a função callback a cada 1s
     struct repeating_timer timer;
     add_repeating_timer_ms(TIMER_INTERVAL_MS, repeating_timer_callback, NULL, &timer);
 
-    // Loop principal que mantém o programa rodando
+    // Loop principal para manter o programa rodando
     while (true) {
         sleep_ms(1000);
-        counter++;
-
-        // Apenas imprime a cada SERIAL_PRINT_INTERVAL segundos
-        if (counter >= SERIAL_PRINT_INTERVAL) {
-            printf("Rotina de repetição\n");
-            counter = 0;
-        }
     }
 
     return 0;
