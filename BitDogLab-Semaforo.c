@@ -1,44 +1,42 @@
 #include <stdio.h>
-#include "pico/stdlib.h"
+#include "pico/stdlib.h"   // Inclui a biblioteca padrão para funcionalidades básicas como GPIO, temporização e comunicação serial.
+#include "hardware/timer.h" // Inclui a biblioteca para gerenciamento de temporizadores de hardware.
 
-const int gpio_pin_r = 13; // LED vermelho
-const int gpio_pin_g = 11; // LED 
-const int gpio_pin_b = 12; // LED 
+#define LED_PIN_RED 11
+bool led_on = false;
 
+// Função de callback que será chamada repetidamente pelo temporizador
+// O tipo bool indica que a função deve retornar verdadeiro ou falso para continuar ou parar o temporizador.
+bool repeating_timer_callback(struct repeating_timer *t) {
+    // Imprime uma mensagem na saída serial indicando que 1 segundo se passou.
+    printf("1 segundo passou\n");
+    //Liga ou desliga o led.
+    led_on = !led_on;
+    gpio_put(LED_PIN_RED,led_on);
+    // Retorna true para manter o temporizador repetindo. Se retornar false, o temporizador para.
+    return true;
+}
 
 int main() {
-    stdio_init_all(); // Inicializa comunicação serial (opcional)
-    
-    gpio_init(gpio_pin_r);
-    gpio_set_dir(gpio_pin_r, GPIO_OUT);
-    gpio_init(gpio_pin_g);
-    gpio_set_dir(gpio_pin_g, GPIO_OUT);
-    gpio_init(gpio_pin_b);
-    gpio_set_dir(gpio_pin_b, GPIO_OUT);
+    // Inicializa a comunicação serial, permitindo o uso de funções como printf.
+    stdio_init_all();
 
+    // Inicializar o pino GPIO11
+    gpio_init(LED_PIN_RED);
+    gpio_set_dir(LED_PIN_RED,true);
+
+    // Declaração de uma estrutura de temporizador de repetição.
+    // Esta estrutura armazenará informações sobre o temporizador configurado.
+    struct repeating_timer timer;
+
+    // Configura o temporizador para chamar a função de callback a cada 1 segundo.
+    add_repeating_timer_ms(1000, repeating_timer_callback, NULL, &timer);
+
+    // Loop infinito que mantém o programa em execução.
     while (true) {
-        gpio_put(gpio_pin_r, 1); // Liga o LED
-        sleep_ms(700);
-        gpio_put(gpio_pin_r, 0); // Desliga o LED
-        printf("LED Vermelho!\n");
-        sleep_ms(500);
-                
-        gpio_put(gpio_pin_g, 1); // Liga o LED
-        sleep_ms(700);
-        gpio_put(gpio_pin_g, 0); // Desliga o LED
-        printf("LED Verde!\n");
-        sleep_ms(500);
-        
-        gpio_put(gpio_pin_b, 1); // Liga o LED
-        sleep_ms(700);
-        gpio_put(gpio_pin_b, 0); // Desliga o LED
-        printf("LED Azul!\n");
-        sleep_ms(500);
-        
-
-
-        printf("LED alternado!\n"); // Mensagem para depuração (opcional)
+        // Pausa de 10 segundos para reduzir o uso da CPU.
+        sleep_ms(10000);
+        printf("rotina de repetição\n");
     }
-
     return 0;
 }
