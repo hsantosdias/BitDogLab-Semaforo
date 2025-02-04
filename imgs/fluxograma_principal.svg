@@ -1,150 +1,145 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="548pt" height="803pt" viewBox="0.00 0.00 548.00 802.81">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 798.81)">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="328pt" height="964pt" viewBox="0.00 0.00 328.00 964.11">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 960.11)">
 <title>G</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-798.81 544,-798.81 544,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-960.11 324,-960.11 324,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_0</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="8,-8 8,-786.81 532,-786.81 532,-8 8,-8"/>
-<text text-anchor="middle" x="270" y="-770.21" font-family="Times,serif" font-size="14.00">Processo Principal</text>
+<polygon fill="lightgrey" stroke="lightgrey" points="8,-8 8,-948.11 312,-948.11 312,-8 8,-8"/>
+<text text-anchor="middle" x="160" y="-931.51" font-family="Times,serif" font-size="14.00">Fluxo do Semáforo</text>
 </g>
 <!-- Start -->
 <g id="node1" class="node">
 <title>Start</title>
-<polygon fill="white" stroke="white" points="380,-754.01 329.5,-736.01 380,-718.01 430.5,-736.01 380,-754.01"/>
-<polyline fill="none" stroke="white" points="340.81,-740.04 340.81,-731.98"/>
-<polyline fill="none" stroke="white" points="368.7,-722.04 391.3,-722.04"/>
-<polyline fill="none" stroke="white" points="419.19,-731.98 419.19,-740.04"/>
-<polyline fill="none" stroke="white" points="391.3,-749.98 368.7,-749.98"/>
-<text text-anchor="middle" x="380" y="-731.81" font-family="Times,serif" font-size="14.00">Início</text>
+<polygon fill="white" stroke="white" points="175,-915.31 124.5,-897.31 175,-879.31 225.5,-897.31 175,-915.31"/>
+<polyline fill="none" stroke="white" points="135.81,-901.34 135.81,-893.29"/>
+<polyline fill="none" stroke="white" points="163.7,-883.34 186.3,-883.34"/>
+<polyline fill="none" stroke="white" points="214.19,-893.29 214.19,-901.34"/>
+<polyline fill="none" stroke="white" points="186.3,-911.29 163.7,-911.29"/>
+<text text-anchor="middle" x="175" y="-893.11" font-family="Times,serif" font-size="14.00">Início</text>
 </g>
 <!-- Init -->
 <g id="node2" class="node">
 <title>Init</title>
-<ellipse fill="white" stroke="white" cx="380" cy="-663.01" rx="115.35" ry="18"/>
-<text text-anchor="middle" x="380" y="-658.81" font-family="Times,serif" font-size="14.00">Inicializar GPIOs e Timers</text>
+<ellipse fill="white" stroke="white" cx="175" cy="-824.31" rx="110.52" ry="18"/>
+<text text-anchor="middle" x="175" y="-820.11" font-family="Times,serif" font-size="14.00">Inicializar GPIOs e Serial</text>
 </g>
 <!-- Start&#45;&gt;Init -->
 <g id="edge1" class="edge">
 <title>Start-&gt;Init</title>
-<path fill="none" stroke="black" d="M380,-717.82C380,-710.23 380,-701.11 380,-692.55"/>
-<polygon fill="black" stroke="black" points="383.5,-692.55 380,-682.55 376.5,-692.55 383.5,-692.55"/>
+<path fill="none" stroke="black" d="M175,-879.13C175,-871.54 175,-862.42 175,-853.85"/>
+<polygon fill="black" stroke="black" points="178.5,-853.86 175,-843.86 171.5,-853.86 178.5,-853.86"/>
 </g>
-<!-- Loop -->
+<!-- ConfigTimer -->
 <g id="node3" class="node">
-<title>Loop</title>
-<polygon fill="white" stroke="white" points="380,-608.01 282.84,-590.01 380,-572.01 477.16,-590.01 380,-608.01"/>
-<text text-anchor="middle" x="380" y="-585.81" font-family="Times,serif" font-size="14.00">Loop Principal</text>
+<title>ConfigTimer</title>
+<ellipse fill="white" stroke="white" cx="175" cy="-751.31" rx="127.95" ry="18"/>
+<text text-anchor="middle" x="175" y="-747.11" font-family="Times,serif" font-size="14.00">Configurar Temporizador (3s)</text>
 </g>
-<!-- Init&#45;&gt;Loop -->
+<!-- Init&#45;&gt;ConfigTimer -->
 <g id="edge2" class="edge">
-<title>Init-&gt;Loop</title>
-<path fill="none" stroke="black" d="M380,-644.82C380,-637.23 380,-628.11 380,-619.55"/>
-<polygon fill="black" stroke="black" points="383.5,-619.55 380,-609.55 376.5,-619.55 383.5,-619.55"/>
+<title>Init-&gt;ConfigTimer</title>
+<path fill="none" stroke="black" d="M175,-806.13C175,-798.54 175,-789.42 175,-780.85"/>
+<polygon fill="black" stroke="black" points="178.5,-780.86 175,-770.86 171.5,-780.86 178.5,-780.86"/>
 </g>
-<!-- Semaforo -->
+<!-- EstadoVermelho -->
 <g id="node4" class="node">
-<title>Semaforo</title>
-<ellipse fill="white" stroke="white" cx="127" cy="-489.79" rx="110.55" ry="29.42"/>
-<text text-anchor="middle" x="127" y="-493.99" font-family="Times,serif" font-size="14.00">Temporizador Periódico:</text>
-<text text-anchor="middle" x="127" y="-477.19" font-family="Times,serif" font-size="14.00">Alternar LEDs</text>
+<title>EstadoVermelho</title>
+<ellipse fill="white" stroke="white" cx="175" cy="-666.9" rx="118.78" ry="29.42"/>
+<text text-anchor="middle" x="175" y="-671.1" font-family="Times,serif" font-size="14.00">Liga LED Vermelho</text>
+<text text-anchor="middle" x="175" y="-654.3" font-family="Times,serif" font-size="14.00">(Desliga Amarelo e Verde)</text>
 </g>
-<!-- Loop&#45;&gt;Semaforo -->
+<!-- ConfigTimer&#45;&gt;EstadoVermelho -->
 <g id="edge3" class="edge">
-<title>Loop-&gt;Semaforo</title>
-<path fill="none" stroke="black" d="M339.52,-579.03C315.84,-572.76 285.55,-563.98 259.37,-554.01 234.91,-544.69 208.76,-532.67 186.22,-521.61"/>
-<polygon fill="black" stroke="black" points="188,-518.59 177.49,-517.29 184.89,-524.86 188,-518.59"/>
-<text text-anchor="middle" x="317.68" y="-541.41" font-family="Times,serif" font-size="14.00">Timer Periódico (3s)</text>
+<title>ConfigTimer-&gt;EstadoVermelho</title>
+<path fill="none" stroke="black" d="M175,-732.84C175,-725.54 175,-716.74 175,-708.01"/>
+<polygon fill="black" stroke="black" points="178.5,-708.22 175,-698.22 171.5,-708.22 178.5,-708.22"/>
 </g>
-<!-- BotaoPress -->
-<g id="node7" class="node">
-<title>BotaoPress</title>
-<polygon fill="white" stroke="white" points="380,-507.79 255.52,-489.79 380,-471.79 504.48,-489.79 380,-507.79"/>
-<text text-anchor="middle" x="380" y="-485.59" font-family="Times,serif" font-size="14.00">Botão Pressionado?</text>
-</g>
-<!-- Loop&#45;&gt;BotaoPress -->
-<g id="edge6" class="edge">
-<title>Loop-&gt;BotaoPress</title>
-<path fill="none" stroke="black" d="M380,-571.9C380,-557.34 380,-536.14 380,-519.06"/>
-<polygon fill="black" stroke="black" points="383.5,-519.55 380,-509.55 376.5,-519.55 383.5,-519.55"/>
-<text text-anchor="middle" x="420.45" y="-541.41" font-family="Times,serif" font-size="14.00">Botão GPIO 5</text>
-</g>
-<!-- SerialMsg -->
+<!-- Delay1 -->
 <g id="node5" class="node">
-<title>SerialMsg</title>
-<ellipse fill="white" stroke="white" cx="157" cy="-312.75" rx="108.39" ry="18"/>
-<text text-anchor="middle" x="157" y="-308.55" font-family="Times,serif" font-size="14.00">Imprimir Status na Serial</text>
+<title>Delay1</title>
+<ellipse fill="white" stroke="white" cx="162" cy="-566.68" rx="80.5" ry="18"/>
+<text text-anchor="middle" x="162" y="-562.48" font-family="Times,serif" font-size="14.00">Aguardar 3000ms</text>
 </g>
-<!-- Semaforo&#45;&gt;SerialMsg -->
+<!-- EstadoVermelho&#45;&gt;Delay1 -->
 <g id="edge4" class="edge">
-<title>Semaforo-&gt;SerialMsg</title>
-<path fill="none" stroke="black" d="M131.89,-460.28C137.48,-427.66 146.57,-374.59 152.15,-342.06"/>
-<polygon fill="black" stroke="black" points="155.53,-343.02 153.77,-332.57 148.63,-341.83 155.53,-343.02"/>
+<title>EstadoVermelho-&gt;Delay1</title>
+<path fill="none" stroke="black" d="M171.2,-637.23C169.5,-624.31 167.48,-609.09 165.77,-596.19"/>
+<polygon fill="black" stroke="black" points="169.29,-596.09 164.51,-586.63 162.35,-597.01 169.29,-596.09"/>
+<text text-anchor="middle" x="216.52" y="-606.88" font-family="Times,serif" font-size="14.00">Aguarda 3000ms</text>
+</g>
+<!-- EstadoAmarelo -->
+<g id="node6" class="node">
+<title>EstadoAmarelo</title>
+<ellipse fill="white" stroke="white" cx="156" cy="-482.27" rx="123.73" ry="29.42"/>
+<text text-anchor="middle" x="156" y="-486.47" font-family="Times,serif" font-size="14.00">Liga LED Amarelo</text>
+<text text-anchor="middle" x="156" y="-469.67" font-family="Times,serif" font-size="14.00">(Desliga Vermelho e Verde)</text>
+</g>
+<!-- Delay1&#45;&gt;EstadoAmarelo -->
+<g id="edge5" class="edge">
+<title>Delay1-&gt;EstadoAmarelo</title>
+<path fill="none" stroke="black" d="M160.73,-548.21C160.2,-540.91 159.56,-532.11 158.92,-523.38"/>
+<polygon fill="black" stroke="black" points="162.42,-523.3 158.21,-513.58 155.44,-523.81 162.42,-523.3"/>
+</g>
+<!-- Delay2 -->
+<g id="node7" class="node">
+<title>Delay2</title>
+<ellipse fill="white" stroke="white" cx="153" cy="-382.05" rx="80.5" ry="18"/>
+<text text-anchor="middle" x="153" y="-377.85" font-family="Times,serif" font-size="14.00">Aguardar 3000ms</text>
+</g>
+<!-- EstadoAmarelo&#45;&gt;Delay2 -->
+<g id="edge6" class="edge">
+<title>EstadoAmarelo-&gt;Delay2</title>
+<path fill="none" stroke="black" d="M155.12,-452.6C154.73,-439.81 154.27,-424.77 153.88,-411.96"/>
+<polygon fill="black" stroke="black" points="157.38,-411.9 153.58,-402.01 150.39,-412.12 157.38,-411.9"/>
+<text text-anchor="middle" x="202.52" y="-422.25" font-family="Times,serif" font-size="14.00">Aguarda 3000ms</text>
+</g>
+<!-- EstadoVerde -->
+<g id="node8" class="node">
+<title>EstadoVerde</title>
+<ellipse fill="white" stroke="white" cx="150" cy="-297.64" rx="134.18" ry="29.42"/>
+<text text-anchor="middle" x="150" y="-301.84" font-family="Times,serif" font-size="14.00">Liga LED Verde</text>
+<text text-anchor="middle" x="150" y="-285.04" font-family="Times,serif" font-size="14.00">(Desliga Vermelho e Amarelo)</text>
+</g>
+<!-- Delay2&#45;&gt;EstadoVerde -->
+<g id="edge7" class="edge">
+<title>Delay2-&gt;EstadoVerde</title>
+<path fill="none" stroke="black" d="M152.36,-363.57C152.1,-356.28 151.78,-347.48 151.46,-338.75"/>
+<polygon fill="black" stroke="black" points="154.97,-338.82 151.1,-328.95 147.97,-339.07 154.97,-338.82"/>
+</g>
+<!-- Delay3 -->
+<g id="node9" class="node">
+<title>Delay3</title>
+<ellipse fill="white" stroke="white" cx="177" cy="-197.42" rx="80.5" ry="18"/>
+<text text-anchor="middle" x="177" y="-193.22" font-family="Times,serif" font-size="14.00">Aguardar 3000ms</text>
+</g>
+<!-- EstadoVerde&#45;&gt;Delay3 -->
+<g id="edge8" class="edge">
+<title>EstadoVerde-&gt;Delay3</title>
+<path fill="none" stroke="black" d="M157.88,-267.96C161.43,-255.05 165.62,-239.83 169.16,-226.93"/>
+<polygon fill="black" stroke="black" points="172.53,-227.9 171.8,-217.33 165.78,-226.04 172.53,-227.9"/>
+<text text-anchor="middle" x="214.73" y="-237.62" font-family="Times,serif" font-size="14.00">Aguarda 3000ms</text>
 </g>
 <!-- EndLoop -->
-<g id="node6" class="node">
-<title>EndLoop</title>
-<polygon fill="white" stroke="white" points="437.37,-130.75 322.63,-130.75 322.63,-16 437.37,-16 437.37,-130.75"/>
-<polyline fill="none" stroke="white" points="334.63,-130.75 322.63,-118.75"/>
-<polyline fill="none" stroke="white" points="322.63,-28 334.63,-16"/>
-<polyline fill="none" stroke="white" points="425.37,-16 437.37,-28"/>
-<polyline fill="none" stroke="white" points="437.37,-118.75 425.37,-130.75"/>
-<text text-anchor="middle" x="380" y="-69.17" font-family="Times,serif" font-size="14.00">Retornar ao Loop</text>
-</g>
-<!-- SerialMsg&#45;&gt;EndLoop -->
-<g id="edge5" class="edge">
-<title>SerialMsg-&gt;EndLoop</title>
-<path fill="none" stroke="black" d="M166.1,-294.42C181.61,-265.92 215.26,-208.27 254,-167.75 271.54,-149.4 293.01,-132.03 313.23,-117.37"/>
-<polygon fill="black" stroke="black" points="315.07,-120.35 321.18,-111.7 311,-114.65 315.07,-120.35"/>
-</g>
-<!-- EndLoop&#45;&gt;Loop -->
-<g id="edge11" class="edge">
-<title>EndLoop-&gt;Loop</title>
-<path fill="none" stroke="black" d="M437.75,-93.16C477.44,-110.1 523,-139.43 523,-184.75 523,-490.79 523,-490.79 523,-490.79 523,-536.18 473.46,-562.16 432.69,-575.86"/>
-<polygon fill="black" stroke="black" points="431.67,-572.51 423.19,-578.87 433.78,-579.19 431.67,-572.51"/>
-</g>
-<!-- OneShot -->
-<g id="node8" class="node">
-<title>OneShot</title>
-<ellipse fill="white" stroke="white" cx="380" cy="-378.16" rx="110.56" ry="29.42"/>
-<text text-anchor="middle" x="380" y="-382.36" font-family="Times,serif" font-size="14.00">Temporizador One-Shot:</text>
-<text text-anchor="middle" x="380" y="-365.56" font-family="Times,serif" font-size="14.00">Acionar LEDs</text>
-</g>
-<!-- BotaoPress&#45;&gt;OneShot -->
-<g id="edge7" class="edge">
-<title>BotaoPress-&gt;OneShot</title>
-<path fill="none" stroke="black" d="M380,-471.66C380,-457.63 380,-437.22 380,-419.14"/>
-<polygon fill="black" stroke="black" points="383.5,-419.19 380,-409.19 376.5,-419.19 383.5,-419.19"/>
-<text text-anchor="middle" x="391.28" y="-429.78" font-family="Times,serif" font-size="14.00">Sim</text>
-</g>
-<!-- Debounce -->
-<g id="node9" class="node">
-<title>Debounce</title>
-<ellipse fill="white" stroke="white" cx="380" cy="-258.75" rx="81.55" ry="18"/>
-<text text-anchor="middle" x="380" y="-254.55" font-family="Times,serif" font-size="14.00">Aplicar Debounce</text>
-</g>
-<!-- OneShot&#45;&gt;Debounce -->
-<g id="edge8" class="edge">
-<title>OneShot-&gt;Debounce</title>
-<path fill="none" stroke="black" d="M380,-348.44C380,-330.15 380,-306.55 380,-288.29"/>
-<polygon fill="black" stroke="black" points="383.5,-288.42 380,-278.42 376.5,-288.42 383.5,-288.42"/>
-</g>
-<!-- EndSeq -->
 <g id="node10" class="node">
-<title>EndSeq</title>
-<ellipse fill="white" stroke="white" cx="380" cy="-185.75" rx="117.24" ry="18"/>
-<text text-anchor="middle" x="380" y="-181.55" font-family="Times,serif" font-size="14.00">Fim da Sequência de LEDs</text>
+<title>EndLoop</title>
+<polygon fill="white" stroke="white" points="272.21,-142.42 145.79,-142.42 145.79,-16 272.21,-16 272.21,-142.42"/>
+<polyline fill="none" stroke="white" points="157.79,-142.42 145.79,-130.42"/>
+<polyline fill="none" stroke="white" points="145.79,-28 157.79,-16"/>
+<polyline fill="none" stroke="white" points="260.21,-16 272.21,-28"/>
+<polyline fill="none" stroke="white" points="272.21,-130.42 260.21,-142.42"/>
+<text text-anchor="middle" x="209" y="-75.01" font-family="Times,serif" font-size="14.00">Reinicia o Processo</text>
 </g>
-<!-- Debounce&#45;&gt;EndSeq -->
+<!-- Delay3&#45;&gt;EndLoop -->
 <g id="edge9" class="edge">
-<title>Debounce-&gt;EndSeq</title>
-<path fill="none" stroke="black" d="M380,-240.56C380,-232.97 380,-223.85 380,-215.28"/>
-<polygon fill="black" stroke="black" points="383.5,-215.29 380,-205.29 376.5,-215.29 383.5,-215.29"/>
+<title>Delay3-&gt;EndLoop</title>
+<path fill="none" stroke="black" d="M181.79,-179.02C183.77,-171.85 186.2,-163 188.79,-153.59"/>
+<polygon fill="black" stroke="black" points="192.09,-154.8 191.37,-144.23 185.34,-152.94 192.09,-154.8"/>
 </g>
-<!-- EndSeq&#45;&gt;EndLoop -->
+<!-- EndLoop&#45;&gt;EstadoVermelho -->
 <g id="edge10" class="edge">
-<title>EndSeq-&gt;EndLoop</title>
-<path fill="none" stroke="black" d="M380,-167.5C380,-160.43 380,-151.75 380,-142.56"/>
-<polygon fill="black" stroke="black" points="383.5,-142.69 380,-132.69 376.5,-142.69 383.5,-142.69"/>
+<title>EndLoop-&gt;EstadoVermelho</title>
+<path fill="none" stroke="black" d="M272.48,-129.59C289.36,-148.23 303,-171.12 303,-196.42 303,-567.68 303,-567.68 303,-567.68 303,-598.62 279.18,-621.14 252.09,-636.75"/>
+<polygon fill="black" stroke="black" points="250.47,-633.65 243.33,-641.47 253.79,-639.81 250.47,-633.65"/>
 </g>
 </g>
 </svg>
