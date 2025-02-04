@@ -36,6 +36,15 @@ Este projeto demonstra o uso de um **temporizador periódico (`add_repeating_tim
 
 ### **Fluxograma do projeto**
 
+#### **Fluxograma simplificado para a execução do projeto**
+
+
+> Diagrama fornecido pelo Professor
+
+[![Diagrama simplificado para a construção do projeto Semaforo](imgs/fluxograma_simplificado.png "Diagrama simplificado para a construção do projeto Semaforo")](https://github.com/hsantosdias/BitDogLab-Semaforo/blob/main/imgs/fluxograma_simplificado.png?raw=true "Diagrama simplificado para a construção do projeto Semaforo")
+
+#### **Fluxograma completo para a construção do codigo do projeto**
+
 [![Fluxograma do projeto](imgs/fluxograma_principal.png "Fluxograma do projeto")](https://github.com/hsantosdias/BitDogLab-Semaforo/blob/main/imgs/fluxograma_principal.png?raw=true "Fluxograma do projeto")
 
 ---
