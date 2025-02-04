@@ -31,6 +31,13 @@ Este projeto demonstra o uso de um **temporizador periódico (`add_repeating_tim
 
 [Simulador no WOKWI deste projeto](https://wokwi.com/projects/421920880908973057 "Simulador no WOKWI deste projeto")
 
+[![Diagrama de conexões](imgs/imagem_simulador.png "Diagrama de conexões")](https://github.com/hsantosdias/BitDogLab-Semaforo/blob/main/imgs/imagem_simulador.png?raw=true "Diagrama de conexões")
+
+
+### **Fluxograma do projeto**
+
+[![Fluxograma do projeto](imgs/fluxograma_principal.png "Fluxograma do projeto")](https://github.com/hsantosdias/BitDogLab-Semaforo/blob/main/imgs/fluxograma_principal.png?raw=true "Fluxograma do projeto")
+
 ---
 
 ## **Organização do Código**
