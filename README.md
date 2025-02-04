@@ -27,6 +27,10 @@ Este projeto demonstra o uso de um **temporizador periódico (`add_repeating_tim
 - **Mensagens seriais** para monitoramento do sistema.
 - Integração com o **simulador Wokwi** para validação do código.
 
+### Simulador para a prototipação do projeto
+
+https://wokwi.com/projects/421920880908973057
+
 ---
 
 ## **Organização do Código**
