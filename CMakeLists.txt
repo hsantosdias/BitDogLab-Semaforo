@@ -40,9 +40,6 @@ add_executable(BitDogLab-Semaforo BitDogLab-Semaforo.c)
 pico_set_program_name(BitDogLab-Semaforo "BitDogLab-Semaforo")
 pico_set_program_version(BitDogLab-Semaforo "0.1")
 
-# Generate PIO header
-pico_generate_pio_header(BitDogLab-Semaforo ${CMAKE_CURRENT_LIST_DIR}/ws2818b.pio)
-
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(BitDogLab-Semaforo 0)
 pico_enable_stdio_usb(BitDogLab-Semaforo 1)
@@ -58,7 +55,6 @@ target_include_directories(BitDogLab-Semaforo PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(BitDogLab-Semaforo 
-        hardware_pio
         hardware_clocks
         hardware_pwm
         )
